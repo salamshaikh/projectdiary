@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Abdul Salam">
+    <meta name="generator" content="">
+    <title>Registration - Online Project Diary</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+</head>
+<body class="text-center">
+		
+		<form class="form-signin" name="loginform" action="request.php" method="post"  >
+		<!-- <form class="form-signin" name="loginform" action="$_SERVER['PHP_SELF']" method="post"  >-->
+			<h2> Online Project Diary</h2>
+			<hr>
+
+			<input class="form-control" type="text" id="rollno" name="username" placeholder="Roll No">
+			<br>
+			<input class="form-control" type="password" id="pwd" name="pwd" placeholder="Password">
+			
+			<input class="form-control" type="password" id="repwd" name="repwd" placeholder="Re type Password">
+			
+			<select class="form-control" id="class" name="class">
+				<option value="">Select your Class</option>
+				<option value="SECO">SE Computer</option>
+				<option value="TECO">TE Computer</option>
+				<option value="BECO">BE Computer</option>
+			</select>
+			
+			<br>
+			<input type="text" id="mobile" name="mobile" class="form-control" placeholder="Mobile No" >
+			<br>
+			<input id="email" type="email" name="email" class="form-control" placeholder="Email" >
+			
+			<!--
+			<br>
+			<label for="male">Gender :  Male </label>
+			<input class="" type="radio" id="male" name="gender">
+			
+			<label for="female"> Female </label>
+			<input class="" type="radio" id="female" name="gender">
+			
+			<br>
+				<input placeholder="DOB" type="date" class="form-control" id="DOB" data-date-format="DD-MM-YYYY" name="dob">
+			<br>
+			
+			<textarea id="address" class="form-control" name="address" rows="5" cols="20" placeholder="Your Address"></textarea>
+
+			<br>
+			
+			Your Device <br>
+			
+			<label for="laptop">Laptop</label>
+			<input type="checkbox" placeholder="Your Address" id="laptop" name="laptop">
+			
+			<label for="mobile">Mobile</label>
+			<input type="checkbox" id="mobile" name="mobile">
+			
+			<label for="desktop">Desktop</label>
+			<input type="checkbox" placeholder="Your Address" id="desktop" name="desktop">
+			<br>-->
+			
+			<label>Upload Photo</label>
+			<input type="file" placeholder="" class="form-control" name="Profile">
+						
+			<input type="submit" class="btn btn-success btn-block btn-flat" name="btnRegister" id="submit-btn" value="Register">
+		</form>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="js/app.js"></script>
+</body>
+</html>
