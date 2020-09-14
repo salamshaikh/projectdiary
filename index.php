@@ -16,8 +16,8 @@
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Student Registration.</h1>
-            <p>Register yourself to have weekly meetings with your guide.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            <p>Register students to have weekly meetings </p>
+            <p><a class="btn btn-lg btn-primary" href="create.php" role="button">Sign up today</a></p>
           </div>
         </div>
       </div>

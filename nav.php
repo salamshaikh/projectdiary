@@ -8,32 +8,61 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <?php
-      session_start();
-      if($_SESSION['user']=="") { ?>
+      $_SESSION['role']="";
+      if(!isset($_SESSION['user'])) { ?>
 
       <li class="nav-item">
         <a class="nav-link" href="signin.php"> Sign In </a>
       </li>
       
       <?php }  else
-      {
+      {        
         ?>
-      
-
       <li class="nav-item">
-        <a class="nav-link" href="create.php">Create group</a>
+        <a class="nav-link" href="#.php">
+          Welcome <?php echo $_SESSION['user']; echo  $_SESSION['role'];?>
+        </a>
+      </li>      
+      <?php
+      }
+
+      if(isset($_SESSION['role'])=='faculty'){
+        ?>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Group</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="addproject.php">Add</a>
+          <a class="dropdown-item" href="viewproject.php">View</a>
+          <a class="dropdown-item" href="#">Manage</a>
+        </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weekly</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="createweekly.php">Add</a>
+          <a class="dropdown-item" href="viewweekly.php">View</a>
+          <a class="dropdown-item" href="#">Manage</a>
+        </div>
+      </li>
+     
     
       <li class="nav-item">
         <a class="nav-link" href="weekly.php">Weekly Monitoring</a>
       </li>
+      
+      <?php } 
+      if(isset($_SESSION['user'])){
+
+      ?>
       <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
       </li>
-      <?php } ?>
+      <?php 
+        }
+      ?>
       <!--
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

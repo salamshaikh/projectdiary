@@ -5,9 +5,7 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-6">
-      <?php
-      session_start();
-
+      <?php     
       include('connect.php'); 
       $rollno = $_SESSION['user'];
       //echo "sesion value : ".$rollno;
@@ -32,8 +30,8 @@
                 echo "0 results";
               }
          -->
-
-      <h3>Update Profile</h3>
+      <br>
+      <h2>Update Profile</h2>
       <form class="form-signin" action="request.php" method="post"  >
     <!-- <form class="form-signin" name="loginform" action="$_SERVER['PHP_SELF']" method="post"  >-->
     
