@@ -94,7 +94,7 @@
                 <h4 class="modal-title">Faculty Login</h4>
               </div>
               <div class="modal-body">
-                <form action="request.php" method="post" class="form-signin">
+                <form action="functions.php" method="post" class="form-signin">
                    <img class="mb-4" src="img/logo.jpg" alt="" width="72" height="72"><hr>             
                   <label for="fEmail" class="sr-only">Email address</label>
 
