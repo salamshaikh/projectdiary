@@ -3,6 +3,9 @@ session_start();
 include('connect.php');
 $username = $pwd = $rollno = $repwd = $mobile = $class = $email = $photo = $text = "";
 	
+	
+
+if(isset($_POST['btnRegister'])){
 	$username = test_input($_POST['username']);
 	$pwd = test_input($_POST['pwd']);
 	$repwd = test_input($_POST['repwd']);
@@ -10,16 +13,15 @@ $username = $pwd = $rollno = $repwd = $mobile = $class = $email = $photo = $text
 	$email = test_input($_POST['email']);
 	$class = test_input($_POST['class']);
 	$mobile = test_input($_POST['mobile']);
-
-if(isset($_POST['btnRegister'])){
 	
 	$sql = "insert into student (username,pwd,class,mobile,email)
 			values ('$username','$pwd','$class',$mobile,'$email') "; 
 
 	//echo $sql;
+	$role= "student";
 	if ($conn->query($sql) === TRUE) {
 		$_SESSION['user']= $username;
-		$_SESSION['role']= 'student';
+		$_SESSION['role']= $role;
 		header("refresh:5;url=profile.php" );
   		echo 'You\'ll be redirected in about 5 secs. If not, click <a href="profile.php">here</a>.';
 	} 
@@ -42,11 +44,11 @@ else if(isset($_POST['btnLogin'])){
 	//echo $sql;
 
 	$result = $conn->query($sql);
-
+	$role = "student";
 	if ($result->num_rows > 0) {
 	  // output data of each row
 		$_SESSION['user']= $rollno;
-		$_SESSION['role']= 'student';
+		$_SESSION['role']= $role;
 		header("refresh:5;url=profile.php" );
   		echo 'You\'ll be redirected in about 5 secs. If not, click <a href="profile.php">here</a>.';
 		

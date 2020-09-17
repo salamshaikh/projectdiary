@@ -1,6 +1,10 @@
 
   <?php include('head.php');
-        include('nav.php'); ?>
+        include('nav.php'); 
+
+  if($_SESSION['role']=='faculty'){
+
+  ?>
 
 <main role="main" class="container">
   <div class="row">
@@ -106,7 +110,11 @@
 
   </div>
 </main><!-- /.container -->
-<?php include('footer.php'); ?>
+<?php 
+
+}
+
+include('footer.php'); ?>
 
 </body>
 </html>

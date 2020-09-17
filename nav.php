@@ -10,27 +10,18 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <?php
-      $_SESSION['role']="";
-      if(!isset($_SESSION['user'])) { ?>
-
+      <?php 
+            if(!isset($_SESSION['user'])){
+      ?>
       <li class="nav-item">
         <a class="nav-link" href="signin.php"> Sign In </a>
       </li>
-      
-      <?php }  else
-      {        
-        ?>
-      <li class="nav-item">
-        <a class="nav-link" href="#.php">
-          Welcome <?php echo $_SESSION['user']; echo  $_SESSION['role'];?>
-        </a>
-      </li>      
-      <?php
+      <?php 
       }
+      
+      if(isset($_SESSION['role'])=="faculty"){
+      ?>
 
-      if(isset($_SESSION['role'])=='faculty'){
-        ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Group</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -53,14 +44,46 @@
         <a class="nav-link" href="weekly.php">Weekly Monitoring</a>
       </li>
       
-      <?php } 
-      if(isset($_SESSION['user'])){
+      <?php
+        }      
+      else if(isset($_SESSION['role'])=="student")
+      {
+      ?>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Group</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">        
+          <a class="dropdown-item" href="viewproject.php">View</a>
+          
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weekly</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="viewweekly.php">View</a>
+          
+        </div>
+      </li>
+     
+    
+      <li class="nav-item">
+        <a class="nav-link" href="profile.php">Profile</a>
+      </li>
+      
+      <?php
+        }
+        else
+        {
+          echo "";
+        }
+        if(isset($_SESSION['user'])){
 
       ?>
       <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
       </li>
-      <?php 
+     <?php
+
         }
       ?>
       <!--

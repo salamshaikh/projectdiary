@@ -7,6 +7,8 @@
     <div class="col-md-6">
       <?php     
       include('connect.php'); 
+      // echo $_SESSION['user'];
+      // echo $_SESSION['role'];
       $rollno = $_SESSION['user'];
       //echo "sesion value : ".$rollno;
     
@@ -44,7 +46,7 @@
           <input class="form-control" type="text" id="rollno" name="username" placeholder="Roll No" disabled value="<?php echo $row['username']; ?>">
         </div>
       </div>
-      
+      <br>
       <div class="row">
         <div class="col-md-4">
           Password
@@ -54,7 +56,7 @@
       
         </div>
       </div>
-
+      <br>
       <div class="row">
         <div class="col-md-4">
           Retype Password
@@ -63,7 +65,7 @@
           <input class="form-control" type="password" id="repwd" name="repwd" placeholder="Re type Password">
         </div>
       </div>
-      
+      <br>
       <div class="row">
         <div class="col-md-4">
           Class
@@ -80,7 +82,7 @@
       
         </div>
       </div>
-      
+      <br>
       <div class="row">
         <div class="col-md-4">
           Mobile
@@ -90,7 +92,7 @@
       
         </div>
       </div>
-
+      <br>
       <div class="row">
         <div class="col-md-4">
           Email
@@ -101,6 +103,7 @@
 
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col-md-4">
           Upload Photo
@@ -118,7 +121,7 @@
         </div>
       </div>
     
-
+      <br>
       
       </form>
       <?php

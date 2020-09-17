@@ -8,7 +8,7 @@ $( function() {
 			$(this).focus();
 		}
 	});
-
+	
 	$('#sname').on('keypress',function(){
 			if(/[^a-zA-Z ]/.test(this.value)){
 				alert("Invalid Name. Only Alphabets and Spaces are allowed");
