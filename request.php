@@ -46,6 +46,7 @@ else if(isset($_POST['btnLogin'])){
 	if ($result->num_rows > 0) {
 	  // output data of each row
 		$_SESSION['user']= $rollno;
+		
 		$_SESSION['role']= 'student';
 		header("refresh:5;url=profile.php" );
   		echo 'You\'ll be redirected in about 5 secs. If not, click <a href="profile.php">here</a>.';

@@ -28,7 +28,7 @@
       </li>      
       <?php
       }
-
+      echo $_SESSION['role'];
       if(isset($_SESSION['role'])=='faculty'){
         ?>
       <li class="nav-item dropdown">
