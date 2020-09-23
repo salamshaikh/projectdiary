@@ -3,11 +3,6 @@
 session_start();
 include('connect.php');
 
-
-	
-	
-	
-
 if(isset($_POST['btnFacRegister'])){
 	$fpwd =  $femail = "";
 	$fpwd = test_input($_POST['fpwd']);	
@@ -62,13 +57,18 @@ else if(isset($_POST['btnFacLogin'])){
 }
 else if(isset($_POST['btnAddProject'])){
 
+	$groupno = test_input($_POST['groupno']);
 	$pname = test_input($_POST['pname']);
 	$pdomain = test_input($_POST['pdomain']);
 	$pbatch = test_input($_POST['pbatch']);
 	$guide = test_input($_POST['guide']);
+	$member1 = test_input($_POST['member1']);
+	$member2 = test_input($_POST['member2']);
+	$member3 = test_input($_POST['member3']);
+	$member4 = test_input($_POST['member4']);
 
-	$sql = "insert into project (pname,pbatch,pdomain,guide)
-			values ('$pname','$pbatch','$pdomain','$guide') "; 
+	$sql = "insert into project (groupno,pname,pbatch,pdomain,guide,member1, member2,member3,member4)
+			values ('$groupno','$pname','$pbatch','$pdomain','$guide','$member1','$member2','$member3','$member4') "; 
 	//echo $sql;
 	if ($conn->query($sql) === TRUE) {
 		

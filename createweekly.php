@@ -5,20 +5,20 @@
 
   if($_SESSION['role']=='faculty'){
 
-  function displaystudents(){
-    if($resultstudents->num_rows > 0 )
-      {
-        while($rows = $resultstudents->fetch_assoc()){
-          echo "<option value=".$rows['username']." > ".
-          $rows['username']. " </option>";
-        }
-      }
-  }
+  // function displaystudents(){
+  //   if($resultstudents->num_rows > 0 )
+  //     {
+  //       while($rows = $resultstudents->fetch_assoc()){
+  //         echo "<option value=".$rows['username']." > ".
+  //         $rows['username']. " </option>";
+  //       }
+  //     }
+  // }
 
-  $sqlproj = "select pname,guide from project";
+  $sqlproj = "select * from project";
   $resultProj = $conn->query($sqlproj);
 
-  $sqlstudents = "select username from student order by username";
+  $sqlstudents = "select rollno from student order by rollno";
   $resultstudents = $conn->query($sqlstudents);
   ?>
 <body>
