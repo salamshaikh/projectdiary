@@ -10,9 +10,9 @@
       // echo $_SESSION['user'];
       // echo $_SESSION['role'];
       $rollno = $_SESSION['user'];
-      //echo "sesion value : ".$rollno;
+      // echo "sesion value : ".$rollno;
     
-      $sql = "select * from student where username ='$rollno'";
+      $sql = "select * from student where rollno ='$rollno'";
       //echo $sql;
 
       $result = $conn->query($sql);
@@ -25,7 +25,7 @@
         
         ?>
 
-        <!--   echo "<br>id: " . $row["id"]. " - Roll no: " . $row["username"]. " Class : " . $row["class"]. "<br>";
+        <!--   echo "<br>id: " . $row["id"]. " - Roll no: " . $row["rollno"]. " Class : " . $row["class"]. "<br>";
                   echo "<br> Mobile No - " . $row["mobile"]. " - Email: " . $row["email"];
                 }
               } else {
@@ -43,7 +43,16 @@
           Rollno
         </div>
         <div class="col-md-8">
-          <input class="form-control" type="text" id="rollno" name="username" placeholder="Roll No" disabled value="<?php echo $row['username']; ?>">
+          <input class="form-control" type="text" id="rollno" name="rollno" placeholder="Roll No" disabled value="<?php echo $row['rollno']; ?>">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+          Full Name
+        </div>
+        <div class="col-md-8">
+          <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Full Name"  value="<?php echo $row['fullname']; ?>">
         </div>
       </div>
       <br>
@@ -52,7 +61,7 @@
           Password
         </div>
         <div class="col-md-8">
-          <input class="form-control" type="password" id="pwd" name="pwd" placeholder="Password">
+          <input class="form-control" type="password" id="pwd" name="pwd" placeholder="Password" required>
       
         </div>
       </div>
@@ -62,7 +71,7 @@
           Retype Password
         </div>
         <div class="col-md-8">               
-          <input class="form-control" type="password" id="repwd" name="repwd" placeholder="Re type Password">
+          <input class="form-control" type="password" id="repwd" name="repwd" placeholder="Re type Password" required>
         </div>
       </div>
       <br>
@@ -73,11 +82,10 @@
         <div class="col-md-8">
           <select class="form-control" id="class" name="class">
             <option value="<?php echo $row['class']; ?>">
-              <?php echo $row['class']; ?> </option>
-            <option value="">Select your Class</option>
-            <option value="SECO">SE Computer</option>
-            <option value="TECO">TE Computer</option>
-            <option value="BECO">BE Computer</option>
+              <?php echo $row['class']; ?> </option>            
+            <option value="SECO">SECO</option>
+            <option value="TECO">TECO</option>
+            <option value="BECO">BECO</option>
           </select>
       
         </div>
@@ -103,8 +111,8 @@
 
         </div>
       </div>
-      <br>
-      <div class="row">
+      
+      <!-- <div class="row">
         <div class="col-md-4">
           Upload Photo
         </div>
@@ -112,12 +120,13 @@
     
           <input type="file" placeholder="" class="form-control" name="Profile">
           </div>
-      </div>  
+      </div>  --> 
       <hr class="mb-3">
       <div class="row">
         <div class="col-md-12 text-center">
-          <button name="btnDelete" class="btn btn-danger"> Delete my account</button>
-          <input type="submit" class="btn btn-success" name="btnUpdate" id="submit-btn" value="Update">
+          
+          <input type="submit" class="btn btn-success" name="btnUpdate" id="submit-btn" value="Update my profile">
+          <button name="btnDelete" class="btn btn-danger"> Delete my profile</button>
         </div>
       </div>
     
@@ -135,6 +144,21 @@
 <?php include('footer.php'); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/app.js"></script>
+<script>
+  $(function(){
+      $("#repwd").on('change',function(e){
 
+        e.preventDefault();
+        var pwd = $("#pwd").val();
+        var repwd = $(this).val();
+        if(pwd != repwd){
+          alert("Password do no match");          
+          $(this).val("");
+          $("#pwd").val("");
+          $("#pwd").focus(); 
+        }
+      });
+  });
+</script>
 </body>
 </html>

@@ -2,15 +2,17 @@
 
 session_start();
 include('connect.php');
-$fpwd =  $femail = "";
+
+
 	
 	
-	$fpwd = test_input($_POST['fpwd']);	
-	$fpwd = md5($fpwd);
-	$femail = test_input($_POST['femail']);
 	
 
 if(isset($_POST['btnFacRegister'])){
+	$fpwd =  $femail = "";
+	$fpwd = test_input($_POST['fpwd']);	
+	$fpwd = md5($fpwd);
+	$femail = test_input($_POST['femail']);
 
 	$sql = "insert into faculty (fname,fpwd,femail)
 			values ('$fname','$fpwd',$femail') "; 
@@ -29,8 +31,12 @@ if(isset($_POST['btnFacRegister'])){
 	}
 }
 else if(isset($_POST['btnFacLogin'])){
-	echo "Welcome <br>";
 	
+	$fpwd =  $femail = "";
+	$fpwd = test_input($_POST['fpwd']);	
+	$fpwd = md5($fpwd);
+	$femail = test_input($_POST['femail']);
+
 	$femail = test_input($_POST['femail']);
 	$fpwd = test_input($_POST['fpwd']);
 
@@ -63,10 +69,10 @@ else if(isset($_POST['btnAddProject'])){
 
 	$sql = "insert into project (pname,pbatch,pdomain,guide)
 			values ('$pname','$pbatch','$pdomain','$guide') "; 
-	echo $sql;
+	//echo $sql;
 	if ($conn->query($sql) === TRUE) {
 		
-		header("refresh:5;url=addproject.php" );
+		header("refresh:2;url=addproject.php" );
   		// echo 'You\'ll be redirected in about 5 secs. If not, click <a href="facprofile.php">here</a>.';
 	} 
 	else {

@@ -63,7 +63,7 @@
                   <label for="inputEmail" class="sr-only">Email address</label>
                   
                   <input type="text" id="rollno" class="form-control" name="rollno" placeholder="Roll No" required autofocus>
-
+                  <br>
                   <label for="inputPassword" class="sr-only">Password</label>
 
                   <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password" required>
@@ -103,7 +103,7 @@
                   <label for="fEmail" class="sr-only">Email address</label>
 
                   <input type="text" id="femail" class="form-control" name="femail" placeholder="Email ID" required autofocus>
-
+                  <br>
                   <label for="inputPassword" class="sr-only">Password</label>
 
                   <input type="password" id="fpwd" name="fpwd" class="form-control" placeholder="Password" required>

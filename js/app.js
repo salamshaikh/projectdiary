@@ -6,6 +6,7 @@ $( function() {
 			$('#rollno').css("border", "3px solid red");
 			this.value="";
 			$(this).focus();
+			
 		}
 	});
 	

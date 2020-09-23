@@ -36,6 +36,47 @@
       <form class="form-signin" action="functions.php" method="post"  >
     <!-- <form class="form-signin" name="loginform" action="$_SERVER['PHP_SELF']" method="post"  >-->
     
+      <div class="modal fade" id="showmodal" role="dialog">
+          <div class="modal-dialog modal-sm">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">View</h4>
+              </div>
+              <div class="modal-body">
+                <form method="post" class="form-signin">
+                   
+                  <img class="mb-4" src="img/logo.jpg" alt="" width="72" height="72"><hr>
+                  
+                  <label for="inputEmail" class="sr-only">Email address</label>
+                  
+                  <input type="text" id="rollno" class="form-control" name="rollno" placeholder="Roll No" required autofocus>
+
+                  <label for="inputPassword" class="sr-only">Password</label>
+
+                  <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password" required>
+                  <br>
+                  <div id="usererr"></div>
+                  <br>
+                  <div class="checkbox mb-3">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                  </div>
+                  <input value="Sign In" name="btnLogin" class="btn btn-md btn-success btn-block" type="submit">
+                  <p class="mt-5 mb-3 ">Don't have an account, <a href="register.html">Sign up</a> Now !</p>
+                  <p class="mt-5 mb-3 ">Lost Password, <a href="reset.php">Reset</a> Now !</p>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
 
       <div class="row">
         <div class="col-md-2">
@@ -102,8 +143,8 @@
         <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Mobile No" value="<?php echo $row['mobile']; ?>">
       
         </div>
-      </div>
- -->
+        </div>
+        -->
       
         <div class="col-md-2">
           Select Guide
@@ -111,15 +152,15 @@
         <div class="col-md-4">
 
           <select class="form-control" id="guide" name="guide">          
-            <option value="">Select Guide</option>            
+            <option value="">Select Guide</option>
             <?php
-              include('connect.php');
-              $sql = "select fname from faculty";
-              $result = $conn->query($sql);
-              if($result->num_rows > 0 )
-              {
-                while($rows = $result->fetch_assoc()){
-                  echo "<option value=".$row['fname']." > ".$row['fname']. " </option>";
+            include('connect.php');
+            $sql = "select fname from faculty";            
+            $result = $conn->query($sql);
+
+            if($result->num_rows > 0 ){
+              while($rows = $result->fetch_assoc() ){
+                echo "<option val=".$rows[fname].">".$rows['fname']."</option>";
                 }
               }
 
@@ -150,6 +191,19 @@
       }
       ?>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" id="display" class="btn btn-primary">
+            Display Project Details
+        </button>
+      </div>
+    </div>
+    <br>
+    <div class="container" id="responseDiv">
+
+    </div>
+    <!-- 
     <div class="row">
       <div class="col-md-12">
       <table class="table table-centered table-hovered">
@@ -159,20 +213,26 @@
         <th>Project Guide</th>
         <th>Project Domain</th>
         <th>Project Batch</th>
+        <th colspan=3>Action</th>
       </thea>
       <?php
         $sql = "select * from project";
               $result = $conn->query($sql);
               if($result->num_rows > 0 )
-              {
-
+               {
                 while($rows = $result->fetch_assoc()){
                   echo "<tr>";
                   echo "<td>".$rows['pid']."</td>";
                   echo "<td>".$rows['pname']."</td>";
                   echo "<td>".$rows['guide']."</td>";
                   echo "<td>".$rows['pdomain']."</td>";
-                  echo "<td>".$rows['pbatch']."</td>";                 
+                  echo "<td>".$rows['pbatch']."</td>";
+
+                  echo "<td><button id='btnShow' class='btn btn-sm btn-success'>Show</button></td>";
+
+                  echo "<td><button id='btnEdit' class='btn btn-sm btn-info'>Edit</button></td>";
+                  
+                  echo "<td><button id='btnDelete' class='btn btn-sm btn-danger'>Delete</button></td>";
                   echo "</tr>";
                 }
               }
@@ -180,10 +240,27 @@
       </table>
       </div>
 
-    </div>
+    </div> -->
   </div>
 </main><!-- /.container -->
 <?php include('footer.php'); ?>
-
+<script type="text/javascript">
+  $(function() { 
+    $("#display").click(function() { 
+        $.ajax({
+          url: "display.php",
+          type: "GET",
+          dataType: "html",
+          success: function(response){
+            $("#responseDiv").html(response);
+          },
+          error: function(){
+            alert("Error");
+          }
+        });
+    });
+  });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
