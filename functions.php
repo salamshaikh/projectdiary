@@ -57,6 +57,7 @@ else if(isset($_POST['btnFacLogin'])){
 }
 else if(isset($_POST['btnAddProject'])){
 
+	
 	$groupno = test_input($_POST['groupno']);
 	$pname = test_input($_POST['pname']);
 	$pdomain = test_input($_POST['pdomain']);
@@ -67,12 +68,13 @@ else if(isset($_POST['btnAddProject'])){
 	$member3 = test_input($_POST['member3']);
 	$member4 = test_input($_POST['member4']);
 
-	$sql = "insert into project (groupno,pname,pbatch,pdomain,guide,member1, member2,member3,member4)
-			values ('$groupno','$pname','$pbatch','$pdomain','$guide','$member1','$member2','$member3','$member4') "; 
-	//echo $sql;
+
+	$sql = "insert into project (groupno,pname,pbatch,pdomain,guide,member1, member2, member3, member4)
+			values ($groupno,'$pname','$pbatch','$pdomain','$guide','$member1','$member2','$member3','$member4') "; 
+	echo $sql;
 	if ($conn->query($sql) === TRUE) {
 		
-		header("refresh:2;url=addproject.php" );
+		header("refresh:5;url=addproject.php" );
   		// echo 'You\'ll be redirected in about 5 secs. If not, click <a href="facprofile.php">here</a>.';
 	} 
 	else {

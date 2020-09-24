@@ -53,15 +53,13 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Group</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">        
-          <a class="dropdown-item" href="viewproject.php">View</a>
-          
+          <a class="dropdown-item" href="viewproject.php">View</a>          
         </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weekly</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="viewweekly.php">View</a>
-          
+          <a class="dropdown-item" href="viewweekly.php">View</a>          
         </div>
       </li>
      
@@ -99,11 +97,52 @@
         </div>
       </li>
     -->
-    </ul>
+    <li class="nav-item dropdown">
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" id="search" type="text" placeholder="Search" aria-label="Search">
+      <div class="dropdown-item" id="display"></div>
+      <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
     </form>
+    </li>
+    </ul>
+    <script>
+    function fill(Value) {
+       //Assigning value to "search" div in "search.php" file.
+       $('#search').val(Value);
+       //Hiding "display" div in "search.php" file.
+       $('#display').hide();
+    }
+    $(document).ready(function() {
+    //On pressing a key on "Search box" in "search.php" file. This function will be called.
+
+
+    $("#search").keyup(function() {
+       //Assigning search box value to javascript variable named as "name".
+       var name = $('#search').val();
+       //Validating, if "name" is empty.
+       if (name == "") {
+           //Assigning empty value to "display" div in "search.php" file.
+           $("#display").html("");
+       }
+       //If name is not empty.
+       else {
+           //AJAX is called.
+           $.ajax({
+               type: "POST",                  //AJAX type is "Post".
+               url: "ajax.php",               //Data will be sent to "ajax.php".
+               data: {                        //Data, that will be sent to "ajax.php".
+                   search: name               //Assigning value of "name" into "search" variable.
+               },
+               //If result found, this funtion will be called.
+               success: function(response) {
+                   //Assigning result to "display" div in "search.php" file.
+                   $("#display").html(response).show();
+                }
+              });
+            }
+          });
+        });
+    </script>
   </div>
   </nav>
  </header>

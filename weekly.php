@@ -87,7 +87,7 @@
 
               <td><input type="text" id="m1total" class="form-control"></td>
             </tr>
-                        <tr>
+            <tr>
               <td> <div id="member2"></div></td>
               <td><input type="text" id="m21" class="form-control"></td>
               <td><input type="text" id="m22" class="form-control"></td>
@@ -100,7 +100,7 @@
 
               <td><input type="text" id="m2total" class="form-control"></td>
             </tr>
-                        <tr>
+            <tr>
               <td> <div id="member3"></div></td>
               <td><input type="text" id="m31" class="form-control"></td>
               <td><input type="text" id="m32" class="form-control"></td>
@@ -113,7 +113,7 @@
 
               <td><input type="text" id="m3total" class="form-control"></td>
             </tr>
-                        <tr>
+            <tr>
               <td> <div id="member4"></div></td>
               <td><input type="text" id="m41" class="form-control"></td>
               <td><input type="text" id="m42" class="form-control"></td>
@@ -199,7 +199,7 @@ include('footer.php'); ?>
     
     $("#pname").on('change',function() {
       var pname = $("#pname").val();
-      alert(pname);
+      
       $.ajax({
         url: "display.php",
         type: "GET",
@@ -209,6 +209,10 @@ include('footer.php'); ?>
         dataType: "html",       
         success: function(response){
           $("#member1").html(response);
+          $("#member2").html(response);
+          $("#member3").html(response);
+          $("#member4").html(response);
+           
         }
       });
     });

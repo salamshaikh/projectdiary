@@ -12,6 +12,9 @@
       $rollno = $_SESSION['user'];
       // echo "sesion value : ".$rollno;
     
+      if(isset($_GET['rollno'])){
+        $rollno = $_GET['rollno'];
+      }
       $sql = "select * from student where rollno ='$rollno'";
       //echo $sql;
 

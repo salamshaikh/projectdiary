@@ -52,13 +52,10 @@
         <div class="col-md-2">
           Group No
         </div>
-        <div class="col-md-2">
-          <input type="text" id="groupno" name="groupno" class="form-control" placeholder="Group No" >
-      
+        <div class="col-md-2"> 
+           <input class="form-control" type="text" id="groupno" name="groupno" placeholder="Enter Group No" value="">
         </div>
-       
-        
-      
+
         <div class="col-md-2">
           Select Guide
         </div>
@@ -76,7 +73,6 @@
                 echo "<option val=".$rows[fname].">".$rows['fname']."</option>";
                 }
               }
-
             ?>
           </select>
         </div>
@@ -101,99 +97,104 @@
             <option value="Cloud Computing">Cloud Computing</option>
             <option value="Image Processing">Image Processing</option>
             <option value="Networking">Networking</option>
-            <option value="Data Mining">DATA MINING</option>
+            <option value="Data Mining">Data Mining</option>
 
-          </select>
-        </div>
-      </div>
-
-    <br>
-      <div class="row">
-        <div class="col-md-3">
-          Member1
-        </div>
-        <div class="col-md-3">
-          <select class="form-control" id="member1" name="member1">          
-            <option value="">Select Member 1</option>
-            <?php
-            include('connect.php');
-            $sql = "select rollno from student";            
-            $result = $conn->query($sql);
-
-            if($result->num_rows > 0 ){
-              while($rows = $result->fetch_assoc() ){
-                echo "<option val=".$rows[rollno].">".$rows['rollno']."</option>";
-                }
-              }
-
-            ?>
-          </select>
-        </div>
-        <div class="col-md-3">
-          Member2
-        </div>
-        <div class="col-md-3">
-          <select class="form-control" id="member2" name="member2">          
-            <option value="">Select Member 2</option>
-            <?php
-            include('connect.php');
-            $sql = "select rollno from student";            
-            $result = $conn->query($sql);
-
-            if($result->num_rows > 0 ){
-              while($rows = $result->fetch_assoc() ){
-                echo "<option val=".$rows[rollno].">".$rows['rollno']."</option>";
-                }
-              }
-
-            ?>
           </select>
         </div>
       </div>
       <br>
-      <div class="row">
+    <div class="row">
         <div class="col-md-3">
-          Member3
+            Member 1
         </div>
         <div class="col-md-3">
+
+          <select class="form-control" id="member1" name="member1">          
+            <option value="">Select Member</option>
+            <?php
+            include('connect.php');
+            $sql = "select fullname from student";            
+            $result = $conn->query($sql);
+
+            if($result->num_rows > 0 ){
+              while($rows = $result->fetch_assoc() ){
+                echo "<option val=".$rows[fullname].">".$rows['fullname']."</option>";
+                }
+              }
+            ?>
+          </select>
+
+        </div>
+
+        <div class="col-md-3">
+            Member 2
+        </div>
+        <div class="col-md-3">
+
+          <select class="form-control" id="member2" name="member2">          
+            <option value="">Select Member</option>
+            <?php
+            include('connect.php');
+            $sql = "select fullname from student";            
+            $result = $conn->query($sql);
+
+            if($result->num_rows > 0 ){
+              while($rows = $result->fetch_assoc() ){
+                echo "<option val=".$rows[fullname].">".$rows['fullname']."</option>";
+                }
+              }
+            ?>
+          </select>
+
+        </div>
+    </div>
+    <br> 
+     <div class="row">
+        <div class="col-md-3">
+            Member 3
+        </div>
+        <div class="col-md-3">
+
           <select class="form-control" id="member3" name="member3">          
-            <option value="">Select Member 3</option>
+            <option value="">Select Member</option>
             <?php
             include('connect.php');
-            $sql = "select rollno from student";            
+            $sql = "select fullname from student";            
             $result = $conn->query($sql);
 
             if($result->num_rows > 0 ){
               while($rows = $result->fetch_assoc() ){
-                echo "<option val=".$rows[rollno].">".$rows['rollno']."</option>";
+                echo "<option val=".$rows[fullname].">".$rows['fullname']."</option>";
                 }
               }
-
             ?>
           </select>
+
+        </div>
+
+        <div class="col-md-3">
+            Member 4
         </div>
         <div class="col-md-3">
-          Member4
-        </div>
-        <div class="col-md-3">
+
           <select class="form-control" id="member4" name="member4">          
-            <option value="">Select Member 4</option>
+            <option value="">Select Member</option>
             <?php
             include('connect.php');
-            $sql = "select rollno from student";            
+            $sql = "select fullname from student";            
             $result = $conn->query($sql);
 
             if($result->num_rows > 0 ){
               while($rows = $result->fetch_assoc() ){
-                echo "<option val=".$rows[rollno].">".$rows['rollno']."</option>";
+                echo "<option val=".$rows[fullname].">".$rows['fullname']."</option>";
                 }
               }
-
             ?>
           </select>
-        </div>
 
-      </div>  
+        </div>
+    </div>
+    <br> 
       <hr class="mb-3">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -210,21 +211,7 @@
     </div>
     <hr>
     <br>
-    <div class="row">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">Search Projects</button>
-          <button type="button" class="btn btn-secondary">All Project</button>
-          <button type="button" class="btn btn-secondary">Machine Learning</button>
-          <button type="button" class="btn btn-secondary">Cloud Computing</button>
-          <button type="button" class="btn btn-secondary">Image Processing</button>
-          <button type="button" class="btn btn-secondary">DATA MINING</button>
-          <button type="button" class="btn btn-secondary">Networking</button>
-        </div>
-    </div>
-       
-    <div class="container" id="responseDiv">
-       <hr>
-    </div>
+    
     <!-- 
     <div class="row">
       <div class="col-md-12">
@@ -266,30 +253,5 @@
   </div>
 </main><!-- /.container -->
 <?php include('footer.php'); ?>
-<script type="text/javascript">
-  $(function() {     
-        var domain = "";
-       
-        $(".btn-group > button.btn").on("click", function(){
-          domain = this.innerHTML;        
-        
-        $.ajax({
-          url: "display.php",
-          type: "GET",
-          data: {
-          domain: domain },
-          dataType: "html",          
-          success: function(response){
-            $("#responseDiv").html(response);
-          },
-          error: function(){
-            alert("Error");
-          }
-        });
-        });
-    });
-  
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
